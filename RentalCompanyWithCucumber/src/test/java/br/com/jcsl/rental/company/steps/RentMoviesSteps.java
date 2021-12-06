@@ -28,6 +28,12 @@ public class RentMoviesSteps {
 	public void thatTheRentPriceIsR$(Integer int1) {
 		movie.setRentPrice(int1);
 	}
+	
+	@Given("that the rent type is {string}")
+	public void thaTheRentTypeIs(String string) {
+		movie.setRentType(string);
+	}
+	
 	@When("rent")
 	public void rent() {
 		try {
@@ -69,4 +75,28 @@ public class RentMoviesSteps {
 	public void theMovieStockWillBeUnits(Integer int1) {
 		Assert.assertEquals(int1, movie.getStock());
 	}
+	
+	@Then("the delivery date will be in {int} days")
+	public void the_delivery_date_will_be_in_days(Integer int1) {
+		Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DAY_OF_MONTH, int1);
+	    
+	    Date deliveryDate = bill.getDeliveryDate();
+	    Calendar calReturn = Calendar.getInstance();
+	    //transform object of date type to calendar
+	    calReturn.setTime(deliveryDate);
+	    
+	    Assert.assertEquals(cal.get(Calendar.DAY_OF_MONTH), calReturn.get(Calendar.DAY_OF_MONTH));
+	    Assert.assertEquals(cal.get(Calendar.MONTH), calReturn.get(Calendar.MONTH));
+	    Assert.assertEquals(cal.get(Calendar.YEAR), calReturn.get(Calendar.YEAR));
+	}
+	
+	@Then("the received pontuation will be of {int} points")
+	public void the_received_pontuation_will_be_of_points(Integer int1) {
+	    Assert.assertEquals(int1, bill.getPontuation());
+	}
+	
+	
+	
+	
 }

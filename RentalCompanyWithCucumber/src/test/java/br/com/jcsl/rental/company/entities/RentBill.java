@@ -6,6 +6,16 @@ public class RentBill {
 	
 	private Integer price;
 	private Date deliveryDate;
+	private String rentType;
+	private Integer pontuation;
+
+	public Integer getPontuation() {
+		return pontuation;
+	}
+
+	public void setPontuation(Integer pontuation) {
+		this.pontuation = pontuation;
+	}
 
 	public Integer getPrice() {
 		return price;
@@ -23,6 +33,17 @@ public class RentBill {
 		deliveryDate = time;
 		
 	}
+
+	public void setRentType(String rentType) {
+		this.rentType = rentType;
+		
+	}
+
+	public String getRentType() {
+		return rentType;
+	}
+
+	
 	
 	
 

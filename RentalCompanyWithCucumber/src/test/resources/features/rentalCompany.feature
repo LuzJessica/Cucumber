@@ -19,10 +19,10 @@ Scenario: Should not rent movies without stock
 
 Scenario: Should give special conditions for extended category 
 	Given a movie with stock of 2 units
-	And that the rent price will be R$ 4
+	And that the rent price is R$ 4
 	And that the rent type is "extended"
 	When rent
-	Then te rent price will be R$ 8
+	Then the rent price will be R$ 8
 	And the delivery date will be in 3 days
 	And the received pontuation will be of 2 points
 	

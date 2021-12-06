@@ -5,6 +5,7 @@ public class Movie {
 	//the variables should be private because guarantee that the variable will not be changed wrongly
 	private int stock;
 	private int rentPrice;
+	private String rentType = "";
 	//the variable stock from class receives the value of stock variable (int1) that came from scenario
 	public void setStock(Integer int1) {
 		this.stock = int1;
@@ -20,6 +21,13 @@ public class Movie {
 	}
 	public Integer getStock() {
 		return stock;
+	}
+	public void setRentType(String string) {
+		this.rentType = string;
+		
+	}
+	public String getRentType() {
+		return rentType;
 	}
 
 }
