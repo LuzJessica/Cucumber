@@ -26,3 +26,17 @@ Scenario: Should give special conditions for extended category
 	And the delivery date will be in 3 days
 	And the received pontuation will be of 2 points
 	
+	
+Scenario: Should not allow rent of adult movies for underage people
+  Given that the person who will rent is "underage"
+  And that the movie classification is "18+"
+  When rent
+  Then should not be possible rent the adult movie 
+ 
+
+ Scenario: Should not allow rent when the person money is not enough
+  Given that the person has R$ 5 to rent a movie
+  And that the movie rent price is R$ 8
+  When rent
+  Then should not be possible rent movie because money is not enough 
+	

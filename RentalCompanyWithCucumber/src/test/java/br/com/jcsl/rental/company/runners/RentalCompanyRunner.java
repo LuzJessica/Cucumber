@@ -18,6 +18,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="C:\\Users\\Alex\\Desktop\\Cucumber\\RentalCompanyWithCucumber\\src\\test\\resources\\features\\rentalCompany.feature",
 				 glue = "br.com.jcsl.rental.company.steps",
+				 //tags = "@toExecute",
 				 plugin = "pretty",
 				 snippets = SnippetType.CAMELCASE,
 				 dryRun = false,

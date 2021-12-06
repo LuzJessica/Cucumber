@@ -14,14 +14,14 @@ import junit.framework.Assert;
 public class RentMoviesSteps {
 	
 	private Movie movie;
-	private RentMovieService rentService = new RentMovieService();
+	RentMovieService rentService = new RentMovieService();
 	private RentBill bill;
 	private Exception error = null;
 	
 	@Given("a movie with stock of {int} units")
 	public void aMovieWithStockOfUnits(Integer int1) {
 		 //gets the value of stock that came from scenario and set in the movie object class
-		  movie = new Movie();
+		  movie = new Movie(); 
 		  movie.setStock(int1);
 	}
 	@Given("that the rent price is R$ {int}")
@@ -33,7 +33,29 @@ public class RentMoviesSteps {
 	public void thaTheRentTypeIs(String string) {
 		movie.setRentType(string);
 	}
+	@Given("that the person who will rent is {string}")
+	public void thatThePersonWhoWillRentIs(String string) {
+		movie = new Movie();
+		movie.setPersonType(string);
+	}
 	
+	@Given("that the movie classification is {string}")
+	public void thatTheMovieClassificationIs(String string) {
+	   movie.setMovieClassification(string);
+	}
+	
+	@Given("that the person has R$ {int} to rent a movie")
+	public void thatThePersonHasR$ToRentAMovie(Integer int1) {
+	    movie = new Movie();
+		movie.setPersonMoney(int1);
+	}
+
+	@Given("that the movie rent price is R$ {int}")
+	public void thatTheMovieRentPriceIsR$(Integer int1) {
+	   movie.setRentPrice(int1);
+	}
+
+		
 	@When("rent")
 	public void rent() {
 		try {
@@ -97,6 +119,13 @@ public class RentMoviesSteps {
 	}
 	
 	
+	@Then("should not be possible rent the adult movie")
+	public void should_not_be_possible_rent_the_adult_movie() {
+	    Assert.assertNotNull(error);
+	}
 	
-	
+	@Then("should not be possible rent movie because money is not enough")
+	public void shouldNotBePossibleRentMovieBecauseMoneyIsNotRnough() {
+	    Assert.assertNotNull(error);
+	}
 }
